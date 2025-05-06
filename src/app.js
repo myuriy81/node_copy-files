@@ -5,16 +5,16 @@ const fs = require('fs');
 function copyFile() {
   const [from, to] = process.argv.slice(2);
 
-  if (from === to) {
+  if (!from || !to) {
     // eslint-disable-next-line
-    console.error('Must be source and destination');
+    console.error('Must be 2 arguments');
 
     return;
   }
 
-  if (!from || !to) {
+  if (from === to) {
     // eslint-disable-next-line
-    console.error('Must be 2 arguments');
+    console.error('Must be source and destination');
 
     return;
   }
